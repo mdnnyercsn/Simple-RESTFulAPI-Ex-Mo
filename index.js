@@ -10,9 +10,7 @@ dotenv.config({path: "./config.env"});
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use("/api", function(req, res) {
-  res.status("Hello Mdonny");
-});
+app.use("/api", router);
 
 app.listen(process.env.PORT || 3004, function() {
   console.log("server is listening");
