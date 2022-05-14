@@ -18,8 +18,13 @@ module.exports = {
       res.status(404).json({message: error.message});
     }
   },
-  getUser: function(req, res) {
-    res.send("Get a User");
+  getUser: async function(req, res) {
+    try {
+      const user = await Model.findById(req.params.id);
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(404).json({message: error.message});
+    }
   },
   updateUser: function(req, res) {
     res.send("Update a User");
